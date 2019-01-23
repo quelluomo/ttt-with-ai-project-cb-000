@@ -9,11 +9,12 @@ require_relative '../config/environment'
   input = gets.chomp
   if input.to_i == 0
     game = Game.new(player_1 = Players::Computer.new("X"), player_2 = Players::Computer.new("O"), Board.new)
+    game.play
   elsif input.to_i == 1 || input.to_i == 2
     puts "To start first type 1, to go second type 2."
     player_choice = gets.chomp
     end
-    
+
       if input.to_i == 1 && player_choice == "1"
       game = Game.new(player_1 = Players::Human.new("X"), player_2 = Players::Computer.new("O"), Board.new)
 
@@ -27,7 +28,7 @@ require_relative '../config/environment'
       game = Game.new(player_1 = Players::Human.new("X"), player_2 = Players::Human.new("O"), Board.new)
 
     end
-    
+
     until game.over?
     game.play_again?
     end
