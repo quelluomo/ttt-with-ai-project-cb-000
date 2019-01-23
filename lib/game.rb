@@ -73,7 +73,7 @@ class Game
           if input == "y"
             board.reset!
             play
-          elsif
+          else
             input == "n"
             puts "See you next time!"
           end #2nd if
