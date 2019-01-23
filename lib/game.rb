@@ -88,8 +88,8 @@ class Game
             input == "n"
             puts "See you next time!"
           end #3rd if
-      end #1st if 
+      end #1st if
     end #while
-  end #play
+  
 
 end
