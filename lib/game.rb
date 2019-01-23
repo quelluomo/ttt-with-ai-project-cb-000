@@ -76,7 +76,7 @@ class Game
           elsif
             input == "n"
             puts "See you next time!"
-          end
+          end #2nd if
       elsif draw?
         puts "Cat's Game!"
         puts "Would you like to play again?(y/)"
@@ -87,7 +87,9 @@ class Game
           elsif
             input == "n"
             puts "See you next time!"
-      end
-    end
+          end #3rd if
+      end #1st if 
+    end #while
+  end #play
 
 end
