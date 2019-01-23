@@ -31,9 +31,9 @@ module Players
     else
       Game::WIN_COMBINATIONS.detect do |combo|
         if combo.select{|index| board.position(index+1) == token}.size == 2 && combo.any?{|index| board.position(index+1) == " "}
-        move = combo.select{|index| !board.taken?(index+1)}.first.to_i.+(1).to_s
+          move = combo.select{|index| !board.taken?(index+1)}.first.to_i.+(1).to_s
         elsif combo.select{|index| board.position(index+1) != " " && board.position(index+1) != token}.size == 2 && combo.any?{|index| board.position(index+1) == " "}
-        move = combo.select{|index| !board.taken?(index+1)}.first.to_i.+(1).to_s
+          move = combo.select{|index| !board.taken?(index+1)}.first.to_i.+(1).to_s
         end
       end
     #if there is no winning combo available, move to a corner as first choice or if it's not possible, move to an edge position:
@@ -63,4 +63,3 @@ end
     #def block_move
       #combo.select{|index| !board.taken?(index+1)}.first.to_i.+(1).to_s
     #end
-
