@@ -1,3 +1,31 @@
 #!/usr/bin/env ruby
 
 require_relative '../config/environment'
+
+input = nil
+player_choice = nil
+puts "Welcome to Tic-tac-toe!"
+puts "Select number of players: 0, 1 or 2?"
+input = gets.chomp
+if input.to_i == 0
+game = Game.new(player_1 = Players::Computer.new("X"), player_2 = Players::Computer.new("O"), Board.new)
+elsif input.to_i == 1 || input.to_i == 2
+puts "To start first type X, to go second type O."
+player_choice = gets.chomp
+end
+if input.to_i == 1 && player_choice == "X"
+game = Game.new(player_1 = Players::Human.new("X"), player_2 = Players::Computer.new("O"), Board.new)
+
+elsif input.to_i == 1 && player_choice == "O"
+game = Game.new(player_1 = Players::Computer.new("X"), player_2 = Players::Human.new("O"), Board.new)
+
+elsif input.to_i == 2 && player_choice == "X"
+game = Game.new(player_1 = Players::Human.new("X"), player_2 = Players::Human.new("O"), Board.new)
+
+elsif input.to_i == 2 && player_choice == "O"
+game = Game.new(player_1 = Players::Human.new("X"), player_2 = Players::Human.new("O"), Board.new)
+
+end
+until game.over?
+game.play
+end
