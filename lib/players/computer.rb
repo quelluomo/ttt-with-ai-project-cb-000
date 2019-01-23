@@ -11,7 +11,7 @@ module Players
       move = "5"
     #if 5 is taken and computer is O, move to any corner:
     elsif board.turn_count == 1
-      move = "1" || "3" || "7" || "9"
+      move = "1" # || "3" || "7" || "9" <- this is the right strategy, but the game crashes
     #if computer is X and O takes 1, move to 9:
     elsif board.turn_count == 2 && board.position(1)
       move = "9"
