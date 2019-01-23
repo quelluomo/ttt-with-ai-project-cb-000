@@ -87,7 +87,7 @@ class Game
           if input == "y"
             puts "OK, let's go!"
             board.reset!
-            play_again
+            play_again?
           elsif
             input == "n"
             puts "See you next time!"
