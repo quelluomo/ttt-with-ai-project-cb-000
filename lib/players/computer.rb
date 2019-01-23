@@ -47,7 +47,7 @@ module Players
     move = "2"
     #from now on try to win or block the move:
   else
-      Game::WIN_COMBINATIONS.detect do |cmb|
+      Game::WIN_COMBINATIONS.detect do |combo|
 
         # First, check whether you have any chances to win, since it doesn't matter whether the opponent has a chance to win if you can win first.
         if combo.select{|index| board.position(index+1) == token}.size == 2 && combo.any?{|index| board.position(index+1) == " "}
