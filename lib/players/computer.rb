@@ -6,22 +6,6 @@ module Players
       corner = ["1", "3", "7", "9"]
       edge = ["2", "4", "6", "8"]
 
-    #def winning_chance
-      #combo.select{|index| board.position(index+1) == token}.size == 2 && combo.any?{|index| board.position(index+1) == " "}
-    #end
-
-    #def winning_move
-      #combo.select{|index| !board.taken?(index+1)}.first.to_i.+(1).to_s
-    #end
-
-    #def block_chance
-        #combo.select{|index| board.position(index+1) != " " && board.position(index+1) != token}.size == 2 && combo.any?{|index| board.position(index+1) == " "}
-    #end
-
-    #def block_move
-      #combo.select{|index| !board.taken?(index+1)}.first.to_i.+(1).to_s
-    #end
-
     #if computer is X start taking 5, if it's O and 5 is not taken, take 5:
     if !board.taken?(5)
     move = "5"
@@ -61,4 +45,22 @@ module Players
   end
 
 end
+
+# ---- CODE DUMPSTER ---- #
+
+    #def winning_chance
+      #combo.select{|index| board.position(index+1) == token}.size == 2 && combo.any?{|index| board.position(index+1) == " "}
+    #end
+
+    #def winning_move
+      #combo.select{|index| !board.taken?(index+1)}.first.to_i.+(1).to_s
+    #end
+
+    #def block_chance
+        #combo.select{|index| board.position(index+1) != " " && board.position(index+1) != token}.size == 2 && combo.any?{|index| board.position(index+1) == " "}
+    #end
+
+    #def block_move
+      #combo.select{|index| !board.taken?(index+1)}.first.to_i.+(1).to_s
+    #end
 
