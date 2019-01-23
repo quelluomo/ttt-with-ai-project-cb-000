@@ -27,5 +27,5 @@ game = Game.new(player_1 = Players::Human.new("X"), player_2 = Players::Human.ne
 
 end
 until game.over?
-game.play_again
+game.play_again?
 end
