@@ -36,9 +36,9 @@ module Players
           move = combo.select{|index| !board.taken?(index+1)}.first.to_i.+(1).to_s
         end
       end
-    #if there is no winning combo available, move to either a corner or an edge 
+    #if there is no winning combo available, move to either a corner or an edge
       move = [1, 3, 7, 9, 2, 4, 6, 8].detect{|i| !board.taken?(i)}.to_s if move == nil
-    #move = rand(1..9).to_s
+    #move = rand(1..9).to_s   <- cute, but less intelligent
       end
       move
     end
