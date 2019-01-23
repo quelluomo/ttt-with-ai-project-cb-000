@@ -90,6 +90,6 @@ class Game
           end #3rd if
       end #1st if
     end #while
-  
+
 
 end
