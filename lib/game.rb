@@ -68,28 +68,9 @@ class Game
     end
       if won?
         puts "Congratulations #{winner}!"
-        puts "Would you like to play again?(y/)"
-        input = gets.strip
-          if input == "y"
-            board.reset!
-            play
-          else
-            input == "n"
-            puts "See you next time!"
-          end #2nd if
       elsif draw?
         puts "Cat's Game!"
-        puts "Would you like to play again?(y/)"
-        input = gets.strip
-          if input == "y"
-            board.reset!
-            play
-          else
-            input == "n"
-            puts "See you next time!"
-          end #3rd if
-      end #1st if
-    end #while
-
+          end 
+      end
 
 end
