@@ -27,11 +27,9 @@ module Players
     move = "5"
     #if 5 is taken and computer is O, move to any corner:
     elsif board.turn_count == 1
-    move = corner.sample
-    #if computer is X and O takes any edge, move to any corner:
-
+    move = "1" || "3" || "7" || "9"
     #if computer is X and O takes 1, move to 9:
-  elsif board.turn_count == 2 && board.position(1)
+    elsif board.turn_count == 2 && board.position(1)
     move = "9"
     #if computer is X and O takes 3, move to 7:
     elsif board.turn_count == 2 && board.position(3)
@@ -43,26 +41,24 @@ module Players
     elsif board.turn_count == 2 && board.position(9)
     move = "1"
     #if computer is O and started from 5, if X is in the opposite corners, move to 2.
-  elsif board.turn_count == 3 && (board.position(1) == board.position(9) || board.position(3) == board.position(7))
+    elsif board.turn_count == 3 && (board.position(1) == board.position(9) || board.position(3) == board.position(7))
     move = "2"
-    #from now on try to win or block the move:
-  else
+    #now try to win by completing the winning combination (if you have 2 out of 3 positions taken of the combo) or block the winning chance of the opponent:
+    else
       Game::WIN_COMBINATIONS.detect do |combo|
-
-        # First, check whether you have any chances to win, since it doesn't matter whether the opponent has a chance to win if you can win first.
         if combo.select{|index| board.position(index+1) == token}.size == 2 && combo.any?{|index| board.position(index+1) == " "}
-          move = combo.select{|index| !board.taken?(index+1)}.first.to_i.+(1).to_s
-
-        # If you can't play any winning moves, play a move to block the opponent from winning.
-      elsif combo.select{|index| board.position(index+1) != " " && board.position(index+1) != token}.size == 2 && combo.any?{|index| board.position(i+1) == " "}
-          move = combo.select{|index| !board.taken?(index+1)}.first.to_i.+(1).to_s
+        move = combo.select{|index| !board.taken?(index+1)}.first.to_i.+(1).to_s
+        elsif combo.select{|index| board.position(index+1) != " " && board.position(index+1) != token}.size == 2 && combo.any?{|index| board.position(index+1) == " "}
+        move = combo.select{|index| !board.taken?(index+1)}.first.to_i.+(1).to_s
         end
       end
-
-      # If none of the WIN_COMBINATIONS patterns have two squares taken by the same token and a third empty square, play into the first open square you find, first checking corners and then checking sides.
+    #if there is no winning combo available, move to a corner as first choice or if it's not possible, move to an edge position:
       move = [1, 3, 7, 9, 2, 4, 6, 8].detect{|i| !board.taken?(i)}.to_s if move == nil
-    end #else
-    move
-  end #move definition
-end #class
-  end #module
+    #move = rand(1..9).to_s
+      end
+      move
+    end
+  end
+
+end
+
