@@ -73,4 +73,28 @@ class Game
           end
       end
 
+    def play_again?
+      while !over?
+        turn
+      end
+        if won?
+          puts "Congratulations #{winner}!"
+          end
+        elsif draw?
+          puts "Cat's Game!"
+            end
+            puts "Would you like to play again?(y/n)"
+            input = gets.strip 
+            if input == "y"
+              puts "OK, let's go!"
+              board.reset!
+              play_again
+            elsif 
+              input == "n"
+              puts "See you next time!"
+            end
+        end
+         
+        
+
 end
